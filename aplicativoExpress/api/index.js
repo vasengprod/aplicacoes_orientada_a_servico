@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("API funcionando 🚀");
+  res.send("API ligada ⚡");
 });
 
 app.get("/random", (req, res) => {
@@ -16,8 +16,11 @@ app.get("/dado", (req, res) => {
 });
 
 const citacoes = [
-{autor:"Albert Einstein", citacao:"A imaginação é mais importante que o conhecimento."},
-{autor:"Isaac Newton", citacao:"Se vi mais longe foi por estar sobre ombros de gigantes."}
+{autor:"Albus Dumbledore", citacao:"A felicidade pode ser encontrada mesmo nas horas mais sombrias, se alguém lembrar de acender a luz."},
+{autor:"Albus Dumbledore", citacao:"São as nossas escolhas que revelam quem realmente somos."},
+{autor:"Sirius Black", citacao:"Todos temos luz e trevas dentro de nós."},
+{autor:"Hermione Granger", citacao:"Livros e inteligência são as armas mais poderosas."},
+{autor:"Harry Potter", citacao:"Não são nossas habilidades que mostram quem somos, mas nossas escolhas."}
 ];
 
 app.get("/citacoes", (req, res) => {
