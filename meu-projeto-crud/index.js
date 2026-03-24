@@ -39,19 +39,28 @@ app.get("/", (req, res) => {
   });
 });
 
-// Porta
+// Porta (usada só localmente)
 const port = process.env.PORT || 3000;
 
-// Sincronizar banco SEM apagar dados
+// Detecta se está rodando no Vercel
+const isVercel = process.env.VERCEL;
+
+// Sincronizar banco
 sequelize
   .sync()
   .then(() => {
     console.log("Banco sincronizado");
 
-    app.listen(port, () => {
-      console.log(`Servidor rodando na porta ${port}`);
-    });
+    // Só inicia servidor local
+    if (!isVercel) {
+      app.listen(port, () => {
+        console.log(`Servidor rodando na porta ${port}`);
+      });
+    }
   })
   .catch((error) => {
     console.error("Erro ao conectar com o banco:", error);
   });
+
+// 🔥 ESSENCIAL para o Vercel
+export default app;
