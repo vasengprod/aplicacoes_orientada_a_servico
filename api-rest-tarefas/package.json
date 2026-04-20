@@ -1,7 +1,7 @@
 {
-  "name": "meu-projeto-crud",
+  "name": "api-rest-tarefas",
   "version": "1.0.0",
-  "description": "",
+  "description": "API RESTful para gerenciamento de tarefas",
   "main": "index.js",
   "type": "module",
   "scripts": {

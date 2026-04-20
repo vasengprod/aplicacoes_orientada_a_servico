@@ -30,6 +30,7 @@ app.use((req, res, next) => {
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
 app.use("/session", routes.session);
+app.use("/tarefas", routes.tarefa);
 
 // Rota base
 app.get("/", (req, res) => {
@@ -39,10 +40,10 @@ app.get("/", (req, res) => {
   });
 });
 
-// Porta (usada só localmente)
+// Porta local
 const port = process.env.PORT || 3000;
 
-// Detecta se está rodando no Vercel
+// Detecta Vercel
 const isVercel = process.env.VERCEL;
 
 // Sincronizar banco
@@ -51,7 +52,6 @@ sequelize
   .then(() => {
     console.log("Banco sincronizado");
 
-    // Só inicia servidor local
     if (!isVercel) {
       app.listen(port, () => {
         console.log(`Servidor rodando na porta ${port}`);
@@ -62,5 +62,4 @@ sequelize
     console.error("Erro ao conectar com o banco:", error);
   });
 
-// 🔥 ESSENCIAL para o Vercel
 export default app;
