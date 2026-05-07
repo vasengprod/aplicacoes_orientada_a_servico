@@ -1,12 +1,16 @@
 # env
 .env
 .env.*
+*/.env
+*/.env.*
 
 # dependencies
 node_modules/
+*/node_modules/
 
 # vercel
 .vercel
+*/.vercel
 
 # logs
 npm-debug.log*
@@ -18,3 +22,4 @@ yarn-error.log*
 
 # build
 dist/
+*/dist/
