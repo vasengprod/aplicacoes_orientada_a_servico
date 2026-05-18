@@ -1,22 +1,6 @@
 import jwt from "jsonwebtoken";
 
 const authMiddleware = async (req, res, next) => {
-  const method = req.method;
-  const path = req.path;
-
-  const isPublicGet = method === "GET" && path !== "/session";
-
-  const isLoginRoute = method === "POST" && path === "/session";
-  const isRefreshRoute = method === "POST" && path === "/session/refresh";
-  const isCreateUserRoute = method === "POST" && path === "/users";
-
-  const isPublicRoute =
-    isPublicGet || isLoginRoute || isRefreshRoute || isCreateUserRoute;
-
-  if (isPublicRoute) {
-    return next();
-  }
-
   const authorization = req.headers.authorization;
 
   if (!authorization) {
